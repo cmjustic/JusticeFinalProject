@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body class="rps-page">
+    <br> <br>
+     <br> <br>
+      <br> <br>
+    <div class="rps-content">
+        <h1 class="header">Rock Paper Scissors SHOOT!</h1>
+        <div class="container">
+        
+        <p>Choose one and play against the computer.</p>
+
+        <div class="choices">
+            <button data-choice="rock">Rock</button>
+            <button data-choice="paper">Paper</button>
+            <button data-choice="scissors">Scissors</button>
+        </div>
+
+        <div class="result" id="result">Make your move!</div>
+        <div class="scoreboard">
+            <div>You: <span id="player-score">0</span></div>
+            <div>Computer: <span id="computer-score">0</span></div>
+        </div>
+
+        <a class="back-link" href="home.html">Back to Home</a>
+        </div>
+    </div>
+
+    <h1 id="message"></h1>
+    
+    <script>
+
+   
+
+        const buttons = document.querySelectorAll('button[data-choice]');
+        const resultEl = document.getElementById('result');
+        const playerScoreEl = document.getElementById('player-score');
+        const computerScoreEl = document.getElementById('computer-score');
+
+        let playerScore = 0;
+        let computerScore = 0;
+
+        const choices = ['rock', 'paper', 'scissors'];
+
+        function getComputerChoice() {
+            return choices[Math.floor(Math.random() * choices.length)];
+        }
+
+        function getRoundResult(playerChoice, computerChoice) {
+            if (playerChoice === computerChoice) return 'draw';
+            if (
+                (playerChoice === 'rock' && computerChoice === 'scissors') ||
+                (playerChoice === 'paper' && computerChoice === 'rock') ||
+                (playerChoice === 'scissors' && computerChoice === 'paper')
+            ) {
+                return 'win';
+            }
+            return 'lose';
+        }
+
+        function playRound(playerChoice) {
+            const computerChoice = getComputerChoice();
+            const roundResult = getRoundResult(playerChoice, computerChoice);
+
+            if (roundResult === 'win') {
+                playerScore += 1;
+                resultEl.textContent = `You win! ${playerChoice} beats ${computerChoice}.`;
+            } else if (roundResult === 'lose') {
+                computerScore += 1;
+                resultEl.textContent = `You lose. ${computerChoice} beats ${playerChoice}.`;
+            } else {
+                resultEl.textContent = `Draw! You both chose ${playerChoice}.`;
+            }
+
+            playerScoreEl.textContent = playerScore;
+            computerScoreEl.textContent = computerScore;
+        }
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                playRound(button.dataset.choice);
+            });
+        });
+    </script>
+</body>
+</html>

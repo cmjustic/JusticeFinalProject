@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+
+    <br>
+     <br>
+      <br>
+
+    <h1 class="pages" id="message"></h1>
+    <h2 class="pages2">Choose a game:</h2>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        let name = params.get('name');
+
+        if (name) {
+            localStorage.setItem('playerName', name);
+        } else {
+            name = localStorage.getItem('playerName');
+        }
+
+        document.getElementById('message').textContent = name
+            ? `Welcome to the game page ${name}!`
+            : 'Welcome to the game page!';
+    </script>
+
+
+    <article class="pages">       
+        <button class="page" onclick="window.location.href='number.html'">Number Guessing Game</button>
+        <br>
+        </article>
+
+    <article class="pages">
+        <button class="page" onclick="window.location.href='memory.html'">Memory Game</button>
+    </article>
+
+    <article class="pages">
+        <button class="page" onclick="window.location.href='game3.html'">Rock Paper Scissors SHOOT!</button>
+    </article>
+
+
+
+</body>
+</html>

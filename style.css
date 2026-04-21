@@ -1,0 +1,149 @@
+
+       
+     body {
+            background-color: #22235F;
+        }
+
+       #gameBoard {
+            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(4, 100px);
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+            display: flex;
+            
+        }
+
+        .card {
+            width: 100px;
+            height: 100px;
+            background: #5f93ee;
+            cursor: pointer;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+
+        .card.flipped img {
+            display: block;
+        }
+
+        .header {
+            text-align: center;
+            margin-top: 20px;
+            color: #FFEE8C;
+        }
+
+        .pages {
+            text-align: center;
+            color: whitesmoke;
+                
+        }
+
+        .pages2 {
+            text-align: center;
+            color: rgb(182, 205, 233);
+                
+        }
+
+        .pages a {
+            color: whitesmoke;
+        }
+
+        .pages button {
+            background-color: #5f93ee;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .pages button:hover {
+            background-color: #45a049;
+        }
+
+        .rps-page {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background: #22235F;
+        }
+
+        .rps-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .rps-page .header {
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .rps-page .container {
+            background: rgb(182, 205, 233);
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            padding: 24px;
+            width: 360px;
+            text-align: center;
+        }
+
+        .rps-page h1 {
+            margin-top: 0;
+        }
+
+        .rps-page .choices {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .rps-page button {
+            flex: 1;
+            padding: 14px 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            background: #f0f0f0;
+            transition: background 0.2s ease;
+        }
+
+        .rps-page button:hover {
+            background: #90a4ea;
+        }
+
+        .rps-page .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .rps-page .scoreboard {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 16px;
+            font-size: 16px;
+        }
+
+        .rps-page .back-link {
+            display: inline-block;
+            margin-top: 22px;
+            color: #0066cc;
+            text-decoration: none;
+        }
+  

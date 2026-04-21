@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <br>
+
+    <article div class="pages">       
+         <a href="home.html" div class="page">Back to Home</a>
+    </article>
+
+     <br>
+      <br>
+
+    
+      <header div class="header">
+        <h1>Number Guessing Game</h1>
+    </header>
+
+
+<h2 class="pages">Guess the Number (1-100)</h2>
+
+<article class="pages">
+    <p>Try to guess the secret number in as few attempts as possible!</p>
+<input type="number" id="guessInput">
+<button onclick="checkGuess()">Guess</button>
+<p id="message"></p>
+</article>
+
+<script>
+let secretNumber = Math.floor(Math.random() * 100) + 1;
+let attempts = 0;
+
+function checkGuess() {
+    let guess = Number(document.getElementById("guessInput").value);
+    attempts++;
+
+    if (guess > secretNumber) {
+        document.getElementById("message").innerText = "Too high!";
+    } else if (guess < secretNumber) {
+        document.getElementById("message").innerText = "Too low!";
+    } else if (guess === secretNumber) {
+        document.getElementById("message").innerText =
+            "Correct! Attempts: " + attempts;
+    } else {
+        document.getElementById("message").innerText =
+            "Enter a valid number.";
+    }
+}
+</script>
+
+</body>
+</html>
+
+
+    
+</body>
+</html>

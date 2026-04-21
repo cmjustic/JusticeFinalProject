@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+        @media screen and (max-width: 700px) {
+            #gameBoard {
+                flex-direction: column;
+            }
+        }
+    </style>
+
+
+</head>
+<body>
+
+    <br>
+
+    <article div class="pages">       
+         <a href="home.html" div class="page">Back to Home</a>
+    </article>
+
+     <br>
+      <br>
+
+    <header div class="header">
+        <h1>Memory Game</h1>
+    </header>
+
+
+<div id="gameBoard"></div>
+
+<script>
+const images = [
+    "cat1.jpeg", "cat1.jpeg",
+    "cat2.jpeg", "cat2.jpeg",
+    "cat3.jpeg", "cat3.jpeg",
+    "cat4.jpeg", "cat4.jpeg"
+];
+
+let shuffled = images.sort(() => 0.5 - Math.random());
+
+let firstCard = null;
+let secondCard = null;
+let lockBoard = false;
+
+const board = document.getElementById("gameBoard");
+
+shuffled.forEach((src) => {
+    const card = document.createElement("div");
+    card.classList.add("card");
+
+    const img = document.createElement("img");
+    img.src = src;
+
+    card.appendChild(img);
+
+    card.addEventListener("click", () => flipCard(card));
+
+    board.appendChild(card);
+});
+
+function flipCard(card) {
+    if (lockBoard || card === firstCard) return;
+
+    card.classList.add("flipped");
+
+    if (!firstCard) {
+        firstCard = card;
+        return;
+    }
+
+    secondCard = card;
+    lockBoard = true;
+
+    let img1 = firstCard.querySelector("img").src;
+    let img2 = secondCard.querySelector("img").src;
+
+    if (img1 === img2) {
+        resetTurn();
+    } else {
+        setTimeout(() => {
+            firstCard.classList.remove("flipped");
+            secondCard.classList.remove("flipped");
+            resetTurn();
+        }, 1000);
+    }
+}
+
+function resetTurn() {
+    firstCard = null;
+    secondCard = null;
+    lockBoard = false;
+}
+</script>
+
+</body>
+</html>
+
+</body>
+</html>
